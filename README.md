@@ -13,3 +13,5 @@ https://github.com/fernmelder/FM-APP/projects/1
 
 # Wiki
 https://github.com/fernmelder/FM-APP/wiki
+
+Ein paar Bilder der Anwendung und Infos.
