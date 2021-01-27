@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <p id="prevLoc"></p>
+<p>Click the button to get your coordinates.</p>
+<button onclick="getLocation()" id="getLoc">Get Location</button>
+<p id="demo"></p>
+
+<script>
+  if(localStorage.getItem("loc")) {
+    // json to object
+   var loc = JSON.parse(localStorage.getItem("loc")); document.querySelector("#prevLoc").innerHTML= `<b>PREVIOUS LOCATION</b><br />LAT:${loc.lat} LONG: ${loc.long}`;
+  }
+var x = document.getElementById("demo");
+
+function getLocation() {
+if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(showPosition);
+} else {
+    x.innerHTML = "Geolocation is not supported by this browser.";}
+}
+
+function showPosition(position) {
+  localStorage.setItem("loc", JSON.stringify({
+    "lat": position.coords.latitude,
+    "long": position.coords.longitude
+  }));
+x.innerHTML="Latitude: " + position.coords.latitude +
+"<br>Longitude: " + position.coords.longitude;
+}
+</script>
+</body>
+</html>
